@@ -36,6 +36,10 @@
 
 /* General styles */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--clr-light);
     color: var(--clr-dark);
@@ -140,9 +144,10 @@ header {
     color: var(--clr-light);
     top: 0; 
     bottom: 0;
-    left: 0;
+    left: 50%;
     right: 0;
     z-index: 100;
+    opacity: 0.95;
 
     transform: translateX(100%);
     transition: transform 250ms cubic-bezier(0.5, 0, 0.5, 1);
@@ -176,7 +181,7 @@ header {
 
 
 .nav-toggle {
-    padding: 0.25em;
+    padding: 1em;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -184,6 +189,7 @@ header {
     right: 1em;
     z-index: 1000;
 }
+
 
 .nav-open .nav {
     transform: translateX(0);
@@ -194,22 +200,27 @@ header {
 }
 
 .nav-open .hamburger {
-    transform: rotate(0.625turn);
-}
-
-.nav-open .hamburger::before {
-    transform: rotate(290 deg);
+    transform: rotate(-135deg);
 }
 
 .nav-open .hamburger::after {
     opacity: 0;
 }
 
+.nav-open .hamburger::before {
+    transform: rotate(270deg) translateX(-6px);
+
+}
+
+
+
+/* Hamburger */
+
+
 .hamburger {
     display: block;
     position: relative;
 }
-
 
 .hamburger,
 .hamburger::before,
@@ -221,36 +232,16 @@ header {
     transition: transform 250ms ease-in-out;
 }
 
-
-
-.hamburger::before,
-.hamburger::after {
+.hamburger::after,
+.hamburger::before {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
 }
 
-.hamburger::before {
-    top: 6px;
-}
-
-.hamburger::after {
-    bottom: 6px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+.hamburger::after {top: 6px;}
+.hamburger::before {bottom: 6px;}
 
 
 /* Intro Section */
@@ -337,7 +328,7 @@ header {
 
 
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
     .services {
         display: flex;
         max-width: 1200px;
@@ -406,7 +397,7 @@ header {
 
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     margin: 0;
     padding: 0;
     grid-gap: 1em;
