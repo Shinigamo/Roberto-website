@@ -484,3 +484,16 @@ header {
     transform-origin: center;
     text-decoration: underline;
 }
+
+
+
+/* Portfolio individual page */
+
+
+.portfolio-item-individual {
+    margin: 0 auto;
+    padding: 0 2em 2em;
+    max-width: 1000px;  
+}
+
+
